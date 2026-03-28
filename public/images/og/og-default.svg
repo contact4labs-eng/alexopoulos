@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0F2440"/>
+  <!-- Subtle geometric accents -->
+  <circle cx="1100" cy="80" r="200" fill="#C8963E" opacity="0.08"/>
+  <circle cx="100" cy="550" r="150" fill="#C8963E" opacity="0.05"/>
+  <!-- Gold accent line -->
+  <line x1="500" y1="400" x2="700" y2="400" stroke="#C8963E" stroke-width="2" opacity="0.6"/>
+  <!-- Text -->
+  <text x="600" y="270" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="72" fill="white">Αλεξόπουλος</text>
+  <text x="600" y="340" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="32" fill="#C8963E">Σχολή Οδηγών</text>
+  <text x="600" y="440" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="22" fill="#9CA3AF">Παλαιό Φάληρο · 50+ χρόνια εμπειρίας · 4.9★</text>
+</svg>

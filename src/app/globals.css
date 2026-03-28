@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ── Brand palette extracted from logo ── */
+  /* Red: from the "L" and left arc of the LA monogram */
+  /* Silver: from the "A" and right arc metallic gradient */
+  --color-brand-red: #E31E24;
+  --color-brand-red-dark: #C41A1F;
+  --color-brand-red-deep: #A01018;
+  --color-brand-silver: #808080;
+  --color-brand-silver-light: #A8A8A8;
+  --color-brand-charcoal: #3C3C3C;
+
+  /* Functional palette built from brand */
+  --color-background: #F7F8F9;
+  --color-foreground: #1A1A1A;
+  --color-surface: #F7F8F9;
+  --color-surface-alt: #ECEEF0;
+  --color-dark: #1A1A1A;
+  --color-dark-mid: #2A2A2A;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B7280;
+  --color-border: #D4D4D4;
+  --color-success: #2E7D32;
+  --color-error: #B42318;
+
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ── Base ── */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Smooth scrolling ── */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* ── Focus ring — brand red ── */
+:focus-visible {
+  outline: 2px solid var(--color-brand-red);
+  outline-offset: 2px;
+}
+
+/* ── Skip to content ── */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--color-dark);
+  color: white;
+  font-weight: 600;
+}
+.skip-to-content:focus { left: 0; }
+
+/* ── Selection ── */
+::selection {
+  background: rgba(227, 30, 36, 0.15);
+  color: var(--color-dark);
+}
+
+/* ── Reveal animation ── */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ── Mobile sticky CTA ── */
+@media (max-width: 1023px) {
+  body { padding-bottom: 5rem; }
 }
