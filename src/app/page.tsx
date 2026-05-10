@@ -1,5 +1,4 @@
 import { Hero } from '@/components/sections/hero';
-import { TrustStrip } from '@/components/sections/trust-strip';
 import { Services } from '@/components/sections/services';
 import { Process } from '@/components/sections/process';
 import { About } from '@/components/sections/about';
@@ -11,7 +10,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustStrip />
       <Reveal>
         <Services />
       </Reveal>
