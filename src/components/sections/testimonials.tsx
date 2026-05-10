@@ -3,17 +3,17 @@ import { Section, SectionHeader } from '@/components/ui/section';
 import { StarRating } from '@/components/ui/star-rating';
 import { testimonials, testimonialConfig } from '@/data/testimonials';
 
-interface TestimonialsProps {
-  limit?: number;
-}
+// Curated indices — 6 most distinct/varied of the 9 in the data file (different first names,
+// different angles on what's praised). The other 3 stay in the data file but don't render here.
+const FEATURED_INDICES = [0, 1, 2, 5, 6, 8] as const;
 
-export function Testimonials({ limit }: TestimonialsProps) {
+export function Testimonials() {
   const { googleRating, googleReviewCount, googleMapsReviewUrl, showEmptyState } = testimonialConfig;
-  const displayed = limit ? testimonials.slice(0, limit) : testimonials;
+  const displayed = FEATURED_INDICES.map((i) => testimonials[i]).filter(Boolean);
 
   if (showEmptyState) {
     return (
-      <Section background="white">
+      <Section background="white" id="kritikes">
         <SectionHeader title="Τι Λένε οι Μαθητές μας" eyebrow="Κριτικές" />
         <div className="mx-auto max-w-lg text-center">
           <StarRating rating={googleRating} size="lg" className="justify-center mb-6" />
@@ -34,7 +34,7 @@ export function Testimonials({ limit }: TestimonialsProps) {
   }
 
   return (
-    <Section background="mist">
+    <Section background="mist" id="kritikes">
       <div className="grid gap-12 lg:grid-cols-[320px_1fr] lg:gap-16">
         {/* Left: proof summary — sticky on desktop */}
         <div className="lg:sticky lg:top-32 lg:self-start">

@@ -58,6 +58,7 @@ export default function OGImage() {
             src={LOGO_SRC}
             width={120}
             height={120}
+            alt=""
             style={{ marginBottom: 8 }}
           />
           <div

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { navigation } from '@/data/navigation';
 
 export function Header() {
@@ -31,56 +31,27 @@ export function Header() {
           <Link href="/" className="flex items-center shrink-0" onClick={closeMobile}>
             <Image
               src="/images/logo.webp"
-              alt="Σχολή Οδηγών Αλεξόπουλος"
-              width={180}
-              height={180}
-              className={`h-11 w-11 sm:h-12 sm:w-12 transition-all duration-300 ${
-                scrolled || mobileOpen ? '' : 'brightness-150 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'
-              }`}
+              alt="Σχολή Οδηγών Αλεξόπουλος — Παλαιό Φάληρο"
+              width={1600}
+              height={373}
+              className="h-9 w-auto sm:h-10 lg:h-11 transition-all duration-300"
               priority
             />
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden items-center lg:flex">
-            {navigation.map((item) =>
-              item.children ? (
-                <div key={item.href} className="group relative">
-                  <Link
-                    href={item.href}
-                    className={`flex items-center gap-1 rounded-lg px-2.5 py-2 text-[12px] font-semibold uppercase tracking-wider transition-colors xl:px-3 xl:text-[13px] ${
-                      scrolled ? 'text-[#1A1A1A] hover:text-[#E31E24]' : 'text-white/90 hover:text-[#E31E24]'
-                    }`}
-                  >
-                    {item.label}
-                    <ChevronDown className="h-3 w-3 opacity-50" aria-hidden="true" />
-                  </Link>
-                  <div className="invisible absolute left-0 top-full pt-3 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
-                    <div className="min-w-56 rounded-xl border border-[#D4D4D4] bg-white p-2 shadow-[0_20px_60px_-15px_rgba(26,26,26,0.2)]">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block rounded-lg px-4 py-2.5 text-sm font-medium text-[#1A1A1A] transition-colors hover:bg-[#ECEEF0] hover:text-[#E31E24]"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`rounded-lg px-2.5 py-2 text-[12px] font-semibold uppercase tracking-wider transition-colors xl:px-3 xl:text-[13px] ${
-                    scrolled ? 'text-[#1A1A1A] hover:text-[#E31E24]' : 'text-white/90 hover:text-[#E31E24]'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
+            {navigation.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`rounded-lg px-2.5 py-2 text-[12px] font-semibold uppercase tracking-wider transition-colors xl:px-3 xl:text-[13px] ${
+                  scrolled ? 'text-[#1A1A1A] hover:text-[#E31E24]' : 'text-white/90 hover:text-[#E31E24]'
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
 
           {/* Desktop CTA */}
@@ -110,25 +81,14 @@ export function Header() {
       {mobileOpen && (
         <div className="border-t border-[#D4D4D4] bg-white px-5 pb-6 pt-3 lg:hidden">
           {navigation.map((item) => (
-            <div key={item.href}>
-              <Link
-                href={item.href}
-                onClick={closeMobile}
-                className="block rounded-lg px-3 py-3 text-base font-semibold text-[#1A1A1A] transition-colors hover:text-[#E31E24]"
-              >
-                {item.label}
-              </Link>
-              {item.children?.map((child) => (
-                <Link
-                  key={child.href}
-                  href={child.href}
-                  onClick={closeMobile}
-                  className="block rounded-lg px-6 py-2.5 text-sm text-[#6B7280] transition-colors hover:text-[#E31E24]"
-                >
-                  {child.label}
-                </Link>
-              ))}
-            </div>
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={closeMobile}
+              className="block rounded-lg px-3 py-3 text-base font-semibold text-[#1A1A1A] transition-colors hover:text-[#E31E24]"
+            >
+              {item.label}
+            </a>
           ))}
           <div className="mt-4 border-t border-[#D4D4D4] pt-4">
             <a

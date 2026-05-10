@@ -14,10 +14,10 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <Image
                 src="/images/logo.webp"
-                alt="Σχολή Οδηγών Αλεξόπουλος"
-                width={180}
-                height={180}
-                className="h-12 w-12 brightness-150 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                alt="Σχολή Οδηγών Αλεξόπουλος — Παλαιό Φάληρο"
+                width={1600}
+                height={373}
+                className="h-11 w-auto"
               />
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-gray-400">
@@ -31,9 +31,9 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               {navigation.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-gray-400 transition-colors hover:text-[#E31E24]">
+                  <a href={item.href} className="text-sm text-gray-400 transition-colors hover:text-[#E31E24]">
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -94,7 +94,7 @@ export function Footer() {
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <Link href="/oroi-xrisis" className="text-xs text-gray-500 transition-colors hover:text-gray-300">
-              Όροι & Απόρρητο
+              Όροι Χρήσης
             </Link>
             {business.social.facebook && (
               <a href={business.social.facebook} target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 transition-colors hover:text-gray-300">

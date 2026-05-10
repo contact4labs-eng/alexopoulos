@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { createMetadata } from '@/lib/metadata';
 import { Section } from '@/components/ui/section';
-import { PageHeader } from '@/components/ui/page-header';
 import { legalContent } from '@/data/legal';
 
 export const metadata: Metadata = createMetadata({
@@ -30,7 +29,17 @@ function LegalSection({ title, sections }: { title: string; sections: ReadonlyAr
 export default function LegalPage() {
   return (
     <>
-      <PageHeader title="Όροι & Πολιτική Απορρήτου" />
+      <section className="relative overflow-hidden bg-[#1A1A1A] pt-28 pb-16 md:pt-36 md:pb-24">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#E31E24]/8 blur-3xl" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#E31E24]/20 to-transparent" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
+            Όροι & Πολιτική Απορρήτου
+          </h1>
+        </div>
+      </section>
 
       <Section background="white">
         <div className="mx-auto max-w-3xl">

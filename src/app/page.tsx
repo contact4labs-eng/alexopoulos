@@ -1,32 +1,31 @@
 import { Hero } from '@/components/sections/hero';
-import { TrustBar } from '@/components/sections/trust-bar';
-import { ServicesGrid } from '@/components/sections/services-grid';
-import { WhyUs } from '@/components/sections/why-us';
+import { TrustStrip } from '@/components/sections/trust-strip';
+import { Services } from '@/components/sections/services';
+import { Process } from '@/components/sections/process';
+import { About } from '@/components/sections/about';
 import { Testimonials } from '@/components/sections/testimonials';
-import { ContactStrip } from '@/components/sections/contact-strip';
-import { CTASection } from '@/components/sections/cta-section';
+import { Contact } from '@/components/sections/contact';
 import { Reveal } from '@/components/ui/reveal';
-import { mainServices } from '@/data/services';
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustBar />
+      <TrustStrip />
       <Reveal>
-        <ServicesGrid services={mainServices} />
+        <Services />
       </Reveal>
       <Reveal>
-        <WhyUs />
+        <Process />
       </Reveal>
       <Reveal>
-        <Testimonials limit={6} />
+        <About />
       </Reveal>
       <Reveal>
-        <ContactStrip />
+        <Testimonials />
       </Reveal>
       <Reveal>
-        <CTASection />
+        <Contact />
       </Reveal>
     </>
   );

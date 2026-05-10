@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone *)",
+      "Read(//private/tmp/alexop_clone_70985/**)",
+      "Read(//private/tmp/alexop_clone_70985/.claude/**)",
+      "Bash(rsync -a /tmp/alexop_clone_70985/ /Users/c.kryparakos/Desktop/Alexop/)",
+      "Bash(rm -rf /tmp/alexop_clone_70985)",
+      "Bash(npm --version)"
+    ]
+  }
+}

@@ -5,7 +5,8 @@ import { Footer } from '@/components/layout/footer';
 import { StickyCTA } from '@/components/layout/sticky-cta';
 import { Analytics } from '@/components/analytics';
 import { CookieConsent } from '@/components/cookie-consent';
-import { generateLocalBusinessSchema } from '@/lib/schema';
+import { generateLocalBusinessSchema, generateFAQSchema } from '@/lib/schema';
+import { faqItems } from '@/data/faq';
 import './globals.css';
 
 const inter = Inter({
@@ -37,6 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const schema = generateLocalBusinessSchema();
+  const faqSchema = generateFAQSchema(faqItems);
 
   return (
     <html lang="el" className={`${inter.variable} h-full antialiased`}>
@@ -45,6 +47,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
+        {faqSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        )}
       </head>
       <body className="min-h-full flex flex-col bg-[#F7F8F9] text-[#1A1A1A]">
         <a href="#main-content" className="skip-to-content">
